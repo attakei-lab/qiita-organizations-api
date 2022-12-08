@@ -1,11 +1,11 @@
 """HTTP endpoint."""
 from pathlib import Path
+
 import httpx
 from bs4 import BeautifulSoup, Tag
 from fastapi import APIRouter
 
 from . import models
-
 
 QIITA_URL_BASE = "https://qiita.com/organizations"
 
@@ -15,6 +15,7 @@ router = APIRouter()
 @router.get("/", response_model=models.ResourceSet[models.Organization])
 async def list_organizations(p: int = 1):
     """Response list of registered organizations."""
+
     def _parse_element(elm: Tag) -> models.Organization:
         id_ = Path(elm["href"]).name
         h2 = elm.find("h2", {"class": "organizationName"})
