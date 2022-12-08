@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 fastapi = "~=0.88.0"
 uvicorn = "~=0.20.0"
+beautifulsoup4 = "~=4.11.1"
+lxml = "~=4.9.1"
+httpx = "~=0.23.1"
 
 [dev-packages]
 
